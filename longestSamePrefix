@@ -1,0 +1,34 @@
+package Day9;
+
+public class longestSamePrefix {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String first = "I love Vietnam";
+		String second = "I am Vietnamese";
+		String third = "I live in Vietnam";
+
+		String[] arr = { first, second, third };
+
+		System.out.println(longestSamePrefix(arr));
+
+	}
+
+	private static String longestSamePrefix(String[] s) {
+		if (s.length == 0)
+			return "";
+		String prefix = s[0];
+
+		for (int i = 1; i < s.length; i++) {
+			while (s[i].indexOf(prefix) != 0) {
+				prefix = prefix.substring(0, prefix.length() - 1);
+				if (prefix.equals(""))
+					return "";
+
+			}
+		}
+
+		return prefix;
+	}
+
+}
